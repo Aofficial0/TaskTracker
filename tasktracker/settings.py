@@ -30,6 +30,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['8000-aofficial0-tasktracker-yfxxw2ylvsp.ws.codeinstitute-ide.net','.herokuapp.com']
 
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.codeinstitute-ide.net',
+    'https://*.herokuapp.com'
+]
 
 # Application definition
 
