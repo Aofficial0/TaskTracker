@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hloolkrv_ali^b2@gt6u=y&%7im0a$p@__v^sn9f%1scn##n9y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['8000-aofficial0-tasktracker-060bdckiwgf.ws.codeinstitute-ide.net','.herokuapp.com']
+ALLOWED_HOSTS = ['8000-aofficial0-tasktracker-yfxxw2ylvsp.ws.codeinstitute-ide.net','.herokuapp.com']
 
 
 # Application definition
@@ -37,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
+    'core.apps.CoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +84,11 @@ DATABASES = {
     }
 }
 
+DATABASES = {
+    'default': dj_database_url.parse(
+        os.environ.get("DATABASE_URL", "postgres://u0p7fmueuvj:dEWGxAZmr9TB@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/evoke_path_slum_257886")
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
