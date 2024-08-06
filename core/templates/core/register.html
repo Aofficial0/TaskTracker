@@ -1,3 +1,6 @@
+{% extends 'core/core.html' %}
+{% block content %}
+
 <div class="header-bar">
     <h1>Register</h1>
 </div>
@@ -12,3 +15,5 @@
 </div>
 
 <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+
+{% endblock content %}
