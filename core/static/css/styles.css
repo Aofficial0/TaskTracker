@@ -1,5 +1,5 @@
 body {
-    background-color: lightgray;
+    background-color: #f7f7f7;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200;
@@ -9,10 +9,37 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
 }
+
+img {
+    max-width: 50%;
+    height: auto;
+  }
+  
+.banner {
+    background-color: #f7f7f7;
+    color: #2B2B2B;
+}
+.banner .row {
+    align-items: center;
+}
+
+.row h1 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.row p {
+    font-size: 1.2em;
+    font-weight: 300;
+    text-align: center;
+}
+
 .container {
     max-width: 550px;
     margin: auto;
     background-color: #fff;
     -webkit-box-shadow: 2px 2px 13px -4px #555355;
-     box-shadow: 2px 2px 13px -4px  #555355;
+    box-shadow: 2px 2px 13px -4px  #555355;
+    border: 1px solid black;
+    border-radius: 20px;
 }
