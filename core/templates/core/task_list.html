@@ -2,20 +2,20 @@
 {% block content %}
 
 {%if request.user.is_authenticated %}
-<p>{{request.user}}</p>
+
 <form id="logout-form" method="post" action="{% url 'logout' %}">
     {% csrf_token %}
-    <button type="submit">Logout</button>
+    <button type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
 </form>
 {% else %}
 <a href="{% url 'login' %}">Login</a>
 {% endif %}
 <hr>
-<h1>Task Tracker</h1>
+<h3 style="margin: 0;">You have  <b>{{count}}</b>  incomplete tasks</h3>
 
 
 
-<a href="{% url 'task-create' %}">Add Task</a>
+<a href="{% url 'task-create' %}"><i class="fa-solid fa-plus"></i>Add Task</a>
 
 <form method="get">
     <input type="text" name="search-bar" value="{{search_input}}">
@@ -25,7 +25,7 @@
 
 <table>
     <tr>
-        <th>Item</th>
+        <th>Tasks</th>
         <th></th>
         <th></th>
     </tr>
