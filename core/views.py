@@ -30,7 +30,7 @@ class CustomLogoutView(LogoutView):
     def get(self, request, *args, **kwargs):
         logout(request)
         messages.success(request, 'You have successfully logged out.')
-        return redirect(reverse_lazy('login'))
+        return reverse_lazy('login')
 
     
 class RegisterPage(FormView):
