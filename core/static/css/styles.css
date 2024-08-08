@@ -25,9 +25,8 @@ a {
 
 p  {
     margin-top: 20px;
+    margin-bottom: 20px;
 }
-
-
 
 /* login page  */
 
@@ -57,7 +56,7 @@ p  {
  /* home page  */
 
 img {
-    max-width: 70%;
+    max-width: 60%;
     height: auto;
   }
 
@@ -98,6 +97,8 @@ img {
     font-weight: 400;
     text-align: center;
 }
+
+
 
 
 
