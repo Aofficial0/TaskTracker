@@ -1,0 +1,12 @@
+{% extends 'core/core.html' %}
+{% block content %}
+
+<a href="{% url 'tasks' %}">Go Back</a>
+
+<form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to logout?</p>
+    <input type="submit" value="Logout"/>
+</form>
+
+{% endblock content %}

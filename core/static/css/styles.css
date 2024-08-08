@@ -28,6 +28,26 @@ p  {
     margin-bottom: 20px;
 }
 
+
+.alert {
+    padding: 20px;
+    background-color: #4CAF50; /* Success background */
+    color: white;
+    border-radius: 5px; /* Rounded corners */
+    opacity: 1; /* Initial opacity */
+    transition: opacity 0.6s ease-out; /* Smooth transition */
+    position: relative;
+    animation: fadeOut 5s forwards; /* Fade out after 5 seconds */
+}
+
+/* Keyframes to fade out the alert */
+@keyframes fadeOut {
+    0% { opacity: 1; } /* Start fully visible */
+    80% { opacity: 0; } /* Gradually fade out */
+    100% { display: none; } /* Hide it after fade */
+}
+
+
 /* login page  */
 
 .header-bar h1 {

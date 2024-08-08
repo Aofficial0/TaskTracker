@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView, View
 from django.urls import reverse_lazy
 
 from django.contrib.auth.views import LoginView, LogoutView
@@ -26,11 +26,16 @@ class CustomLoginView(LoginView):
         messages.success(self.request, 'You have successfully logged in.')
         return reverse_lazy('home')
 
-class CustomLogoutView(LogoutView):
+class LogoutConfirmView(LoginRequiredMixin, View):
+    template_name = 'core/logout_confirm.html'
+
     def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
         logout(request)
         messages.success(request, 'You have successfully logged out.')
-        return reverse_lazy('login')
+        return redirect(reverse_lazy('login'))
 
     
 class RegisterPage(FormView):
@@ -92,11 +97,19 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
         messages.success(self.request, 'Task updated successfully.')
         return super().form_valid(form)
 
-class DeleteView(LoginRequiredMixin, DeleteView):
-    model = Task
-    context_object_name = 'task'
+class TaskDeleteConfirmView(LoginRequiredMixin, View):
+    template_name = 'core/task_confirm_delete.html'
     success_url = reverse_lazy('tasks')
 
-    def delete(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
+        task = Task.objects.get(id=kwargs['pk'])
+        context = {
+            'task': task
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        task = Task.objects.get(id=kwargs['pk'])
+        task.delete()
         messages.success(request, 'Task deleted successfully.')
-        return super(DeleteView, self).delete(request, *args, **kwargs)
+        return redirect(self.success_url)
