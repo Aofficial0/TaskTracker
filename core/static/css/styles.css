@@ -1,5 +1,5 @@
 body {
-    background-color: #fdfcfc;
+    background-color: rgb(53, 213, 235);
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200;
@@ -11,12 +11,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 img {
-    max-width: 50%;
+    max-width: 70%;
     height: auto;
   }
 
 .banner {
-    background-color: #fdfcfc;
+    background-color: #fff;
     color: #4b5156;
     margin-bottom: 20px;
 }
@@ -52,11 +52,28 @@ a {
 
 
 .container {
-    max-width: 780px;
+    max-width: 650px;
+    height: 650px; 
     margin: auto;
     background-color: #fff;
     -webkit-box-shadow: 2px 2px 13px -4px #555355;
-    box-shadow: 2px 2px 13px -4px  #555355;
-    border:  none;
+    box-shadow: 2px 2px 13px -4px #555355;
+    border: none;
     border-radius: 20px;
+
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+
+@media (max-width: 767px) {
+    .banner .row {
+        flex-direction: column; /* Stack vertically on mobile */
+    }
+    .banner .row img {
+        margin-top: 20px; /* Add space between text and image */
+    }
 }

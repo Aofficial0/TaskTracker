@@ -9,11 +9,14 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 
 from .models import Task
 
 # Create your views here.
-
+def home(request):
+    return render(request, 'core/home.html')
+    
 class CustomLoginView(LoginView):
     template_name = 'core/login.html'
     fields = '__all__'
@@ -21,7 +24,7 @@ class CustomLoginView(LoginView):
 
     def get_success_url(self):
         messages.success(self.request, 'You have successfully logged in.')
-        return reverse_lazy('tasks')
+        return reverse_lazy('home')
 
 class CustomLogoutView(LogoutView):
     def get(self, request, *args, **kwargs):
@@ -77,6 +80,7 @@ class TaskCreate(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        messages.success(self.request, 'Created task successful.')
         return super(TaskCreate, self).form_valid(form)
 
 class TaskUpdate(LoginRequiredMixin, UpdateView):
@@ -92,3 +96,7 @@ class DeleteView(LoginRequiredMixin, DeleteView):
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('tasks')
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(request, 'Task deleted successfully.')
+        return super(DeleteView, self).delete(request, *args, **kwargs)

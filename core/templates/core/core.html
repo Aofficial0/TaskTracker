@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
 </head>
+
 <body>
     {% if messages %}
         <div class="messages">
@@ -25,20 +26,8 @@
             {% endfor %}
         </div>
     {% endif %}
-   
-    <div class="banner">
-        <div class="container1">
-            <div class="row">
-            <div class="col-sm-6">
-                <h1 class="fw-bold display-4">Task Tracker</h1>
-                <p>Your task management solution</p>
-                <p>Welcome <b>{{request.user|title}}</b> </p>
-            </div>
-            <div class="col-sm-6">
-                <img src="{% static 'images/list.webp' %}" class="img-fluid" alt="banner-image">
-            </div>
-            </div>
-        </div>
+    <div class="container1">
+        
     </div>
    
     <div class="container">

@@ -1,0 +1,23 @@
+
+{% extends 'core/core.html'%}
+{% load static %}
+{% block content%}
+
+<div class="banner">
+    <div class="container1">
+        <div class="row">
+        <div class="col-sm-6">
+            <h1 class="fw-bold display-4">Task Tracker</h1>
+            <p>Your task management solution</p>
+            <p>Welcome <b>{{request.user|title}}</b> </p>
+            <a href="{% url 'tasks' %}">View Tasks</a>
+        </div>
+        <div class="col-sm-6">
+            <img src="{% static 'images/list.webp' %}" class="img-fluid" alt="banner-image">
+        </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
