@@ -27,7 +27,7 @@ class CustomLoginView(LoginView):
         return reverse_lazy('home')
 
 class LogoutConfirmView(LoginRequiredMixin, View):
-    template_name = 'core/logout_confirm.html'
+    template_name = 'core/logout-confirm.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)

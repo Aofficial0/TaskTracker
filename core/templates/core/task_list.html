@@ -10,7 +10,7 @@
         </div>
     {% endif %}
     
-<form id="logout-form" method="post" action="{% url 'logout_confirm' %}">
+<form id="logout-form" method="get" action="{% url 'logout-confirm' %}">
     {% csrf_token %}
     <button type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
 </form>

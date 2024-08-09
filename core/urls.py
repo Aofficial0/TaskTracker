@@ -5,7 +5,7 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('home/', home, name='home'),
     path('login/', CustomLoginView.as_view(), name='login'),
-    path('logout-confirm/', LogoutConfirmView.as_view(), name='logout_confirm'),
+    path('logout-confirm/', LogoutConfirmView.as_view(), name='logout-confirm'),
     path('register/', RegisterPage.as_view(), name='register'),
     path('', TaskTrack.as_view(), name='tasks'),
     path('task/<int:pk>/', TaskDetail.as_view(), name='task'),
