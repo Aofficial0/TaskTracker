@@ -153,8 +153,9 @@ img {
     color: #fff;
     padding: 10px 95px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 25px;
     font-size: 16px;
+    transition: all 0.3s ease;
 }
 
 .logout-button:hover {
@@ -176,16 +177,17 @@ img {
     display: inline-block;
     margin-right: 20px;
     text-decoration: none;
-    background-color: #007bff;
-    color: #fff;
+    background-color: transparent;
+    border: 1px solid gray;
     padding: 8px 16px;
-    border-radius: 4px;
+    border-radius: 25px;
     font-size: 16px;
+    transition: all 0.3s ease;
 }
 
 .home-link:hover,
 .add-task-link:hover {
-    background-color: #0056b3;
+    background-color: #292929;
     color: #fff;
 }
 
@@ -197,21 +199,22 @@ img {
     padding: 8px;
     width: 200px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 25px;
 }
 
 .search-button {
     padding: 8px 16px;
     border: none;
-    background-color: #007bff;
-    color: #fff;
+    background-color: transparent;
+    border: 1px solid gray;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 25px;
     margin-left: 10px;
+    transition: all 0.3s ease;
 }
 
 .search-button:hover {
-    background-color: #0056b3;
+    background-color: #292929;
     color: #fff;
 }
 
@@ -252,8 +255,9 @@ img {
 .task-table a {
     text-decoration: none; 
     padding: 4px 8px;
-    border-radius: 4px;
+    border-radius: 25px ;
     color: #fff; 
+    transition: all 0.3s ease;
 }
 
 /* Edit link styling */
