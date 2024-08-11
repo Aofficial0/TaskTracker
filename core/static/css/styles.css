@@ -89,7 +89,6 @@ form label {
     margin-top: 10px;
 }
 
-
  /* home page  */
 
 img {
@@ -105,8 +104,8 @@ img {
 .banner .row {
     display: flex;
     flex-direction: row; 
-    align-items: center; 
-    justify-content: center; 
+    align-items: center ; 
+    justify-content: center ; 
 }
 
 .container1 a {
@@ -135,8 +134,152 @@ img {
     text-align: center;
 }
 
+/* task list page  */
 
+.logout-form {
+    display: inline-block;
+    margin-right: 20px;
+}
 
+.logout-container {
+    display: flex;
+    justify-content: flex-end !important; 
+    margin-bottom: 20px; 
+}
+
+.logout-button {
+    background-color: #ff4b5c;
+    border: none;
+    color: #fff;
+    padding: 10px 95px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.logout-button:hover {
+    background-color: #e04352;
+}
+
+.task-count {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.links-container {
+    display: flex;              
+    gap: 20px;                  
+    margin-bottom: 20px;        
+}
+.home-link,
+.add-task-link {
+    display: inline-block;
+    margin-right: 20px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.home-link:hover,
+.add-task-link:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.search-form {
+    margin: 20px 0;
+}
+
+.search-input {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* Task table styling */
+.task-table-container {
+    width: 100%; 
+    overflow-x: auto; 
+    margin: 20px 0; 
+}
+
+/* Styling for the task table */
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Header styling */
+.task-table th {
+    background-color: #f2f2f2; 
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #ddd; 
+}
+
+/* Row styling */
+.task-table td {
+    border: 1px solid #ddd; 
+    padding: 12px;
+    text-align: left;
+}
+
+/* Hover effect for table rows */
+.task-row:hover {
+    background-color: #f9f9f9; 
+}
+
+/* Styling for action links */
+.task-table a {
+    text-decoration: none; 
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff; 
+}
+
+/* Edit link styling */
+.task-table a[href*="task-update"] {
+    background-color: #28a745; 
+}
+
+.task-table a[href*="task-update"]:hover {
+    background-color: #218838; 
+}
+
+/* Delete link styling */
+.task-table a[href*="task-delete"] {
+    background-color: #dc3545; 
+}
+
+.task-table a[href*="task-delete"]:hover {
+    background-color: #c82333; 
+}
+
+/* No tasks available row styling */
+.task-table td[colspan="3"] {
+    text-align: center;
+    font-style: italic; 
+    color: #999; 
+}
 
 
 
@@ -153,12 +296,13 @@ img {
     box-shadow: 2px 2px 13px -4px #555355;
     border: none;
     border-radius: 20px;
-
     display: flex;
     flex-direction: column; 
-    align-items: center; 
+    align-items: center;
     justify-content: center; 
-    text-align: center; 
+    text-align: center;
+    overflow-y: auto; 
+    padding: 20px; 
 }
 
 

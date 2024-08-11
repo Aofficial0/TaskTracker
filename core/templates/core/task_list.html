@@ -9,42 +9,51 @@
             {% endfor %}
         </div>
     {% endif %}
-    
-<form id="logout-form" method="get" action="{% url 'logout-confirm' %}">
-    {% csrf_token %}
-    <button type="submit"><i class="fa-solid fa-right-from-bracket"></i></button>
-</form>
+
+<div class="logout-container"> 
+    <form id="logout-form" method="get" action="{% url 'logout-confirm' %}" class="logout-form">
+        {% csrf_token %}
+        <button type="submit" class="logout-button">
+        <i class="fa-solid fa-right-from-bracket"></i>Logout
+        </button>
+    </form>
+</div>
 {% else %}
-<a href="{% url 'login' %}">Login</a>
+<a href="{% url 'login' %}" class="login-link">Login</a>
 {% endif %}
-<hr>
-<h3 style="margin: 0;">You have  <b>{{count}}</b>  incomplete task{{count|pluralize}}</h3>
+    
+<div class="links-container">
+    <a href="{% url 'home' %}" class="home-link"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="{% url 'task-create' %}" class="add-task-link"><i class="fa-solid fa-plus"></i> Add Task</a>
+</div>
 
-    <a href="{% url 'home' %}">Home</a>
 
-<a href="{% url 'task-create' %}"><i class="fa-solid fa-plus"></i>Add Task</a>
-
-<form method="get">
-    <input type="text" name="search-bar" value="{{search_input}}">
-    <input type="submit" value="Search">
+<form method="get" class="search-form">
+     <input type="text" name="search-bar" value="{{search_input}}" class="search-input">
+    <input type="submit" value="Search" class="search-button">
 </form>
 
-
-<table>
-    <tr>
-        <th>Tasks</th>
-        <th></th>
-        <th></th>
-    </tr>
-    {% for task in tasks %}
-    <tr>
-        <td>{{task.title}}</td>
-        <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
-        <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
-    </tr>
-    {% empty %}
-        <h3>No Items in list</h3>
-    {% endfor %}
-</table>
+<h3 class="task-count"><b>{{request.user|title}}</b> you have <b>{{count}}</b> incomplete task{{count|pluralize}}</h3>
+    
+<div class="task-table-container">
+    <table class="task-table">
+        <tr>
+            <th>Tasks</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for task in tasks %}
+        <tr class="task-row">
+            <td>{{ task.title }}</td>
+            <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
+            <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No tasks available</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 
 {% endblock content %}
