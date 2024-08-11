@@ -73,6 +73,23 @@ p  {
     background-color: #292929;
 }
 
+/* register page  */
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.helptext {
+    display: block;
+    margin-bottom: 10px;
+    color: #6c757d;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+
  /* home page  */
 
 img {

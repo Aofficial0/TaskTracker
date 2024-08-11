@@ -18,7 +18,7 @@
 <a href="{% url 'login' %}">Login</a>
 {% endif %}
 <hr>
-<h3 style="margin: 0;">You have  <b>{{count}}</b>  incomplete tasks</h3>
+<h3 style="margin: 0;">You have  <b>{{count}}</b>  incomplete task{{count|pluralize}}</h3>
 
     <a href="{% url 'home' %}">Home</a>
 
