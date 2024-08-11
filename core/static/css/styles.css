@@ -323,3 +323,41 @@ img {
         margin-top: 20px; 
     }
 }
+
+/* footer  */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: #f0f0f0;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    padding: 10px;
+    z-index: 100;
+}
+
+
+.footer p {
+    color: #fff;
+}
+
+.icons {
+    margin: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .footer {
+        position: fixed; 
+    }
+}
+
+@media (min-width: 1025px) {
+    .footer {
+       position: fixed;
+    }
+}
