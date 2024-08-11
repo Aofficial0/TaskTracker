@@ -41,19 +41,28 @@
             <th>Tasks</th>
             <th>Edit</th>
             <th>Delete</th>
+            <th>Complete</th>
         </tr>
         {% for task in tasks %}
-        <tr class="task-row">
+        <tr class="task-row {% if task.complete %}completed{% endif %}">
             <td>{{ task.title }}</td>
-            <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
-            <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+            <td><a href="{% url 'task-update' task.id %}" class="edit-link">Edit</a></td>
+            <td><a href="{% url 'task-delete' task.id %}" class="delete-link">Delete</a></td>
+            <td>
+                <form method="post" action="{% url 'update_task_complete' task.id %}">
+                    {% csrf_token %}
+                    <input type="checkbox" name="complete" {% if task.complete %}checked{% endif %} onchange="this.form.submit();">
+                </form>
+            </td>
         </tr>
         {% empty %}
         <tr>
-            <td colspan="3">No tasks available</td>
+            <td colspan="4">No tasks available</td>
         </tr>
         {% endfor %}
     </table>
 </div>
 
 {% endblock content %}
+
+

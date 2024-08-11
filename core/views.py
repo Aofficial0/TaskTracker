@@ -12,6 +12,10 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 
 from .models import Task
+from django.shortcuts import get_object_or_404, redirect
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 # Create your views here.
 def home(request):
@@ -37,6 +41,13 @@ class LogoutConfirmView(LoginRequiredMixin, View):
         messages.success(request, 'You have successfully logged out.')
         return redirect(reverse_lazy('login'))
 
+
+def update_task_complete_status(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    task.complete = not task.complete  # Toggle the complete status
+    task.save()
+    messages.success(request, f'Task "{task.title}" status updated successfully.')
+    return redirect(request.META.get('HTTP_REFERER', '/'))
     
 class RegisterPage(FormView):
     template_name = 'core/register.html'

@@ -2,7 +2,6 @@ body {
     background: #2B236F;
     background: linear-gradient(225deg, #2B236F, #B86931);
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     padding-top: 50px;
@@ -218,6 +217,7 @@ img {
     color: #fff;
 }
 
+
 /* Task table styling */
 .task-table-container {
     width: 100%; 
@@ -285,11 +285,17 @@ img {
     color: #999; 
 }
 
+/* Task Completed */
+.completed td:first-child {
+    text-decoration: line-through;
+    color: #333; 
+}
 
-
-
-
-
+/* Checkbox Styling */
+.complete-checkbox {
+    transform: scale(1.2);
+    cursor: pointer;
+}
 
 .container {
     max-width: 650px;

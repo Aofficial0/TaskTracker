@@ -29,5 +29,40 @@
       <div class="footer">
         <p>© 2024 TASK TRACKER</p>
       </div>
+
+
+      {% block extra_js %}
+<script>
+    document.querySelectorAll('.complete-checkbox').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        const taskId = this.getAttribute('data-task-id');
+        const isChecked = this.checked;
+
+        fetch(`/tasks/complete/${taskId}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ complete: isChecked }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const taskRow = this.closest('.task-row');
+                if (isChecked) {
+                    taskRow.classList.add('completed');
+                } else {
+                    taskRow.classList.remove('completed');
+                }
+            } else {
+                alert('There was an error updating the task status.');
+            }
+        });
+    });
+});
+
+</script>
+{% endblock extra_js %}
 </body>
 </html>
