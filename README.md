@@ -31,8 +31,7 @@
  6. [ Testing ](#testing)  
  7. [ Bugs ](#known-bugs)  
  8. [ Deployment](#deployment)
- 9. [ Resources ](#resources)  
- 10. [ Credits and acknowledgements ](#credits-and-acknowledgements)
+ 9. [ Credits and References ](#Credits-and-References)  
 
 ---
 
@@ -179,44 +178,56 @@ My user stories encompassed all the essential features that I believed would del
 
 ### Responsiveness
 
+tested for responsiveness in Google Chrome, using devtools
 
+> PC:
 
+![PC](core/static/images/Macbook.png)
 
-### Automatic Testeing
+> Phone:
 
+![Phone](core/static/images/iPhone.png)
 
+> Tablet:
 
-
-
-### Manual testing
+![Tablet](core/static/images/iPad.png)
 
 #### Account Registration Tests
 
-
+| Test                                           | Result |
+| ---------------------------------------------- | ------ |
+| User can create profile                        | Pass   |
+| User can log into profile                      | Pass   |
+| User can log out of profile                    | Pass   |
+| Messages and alerts are displaying             | Pass   |
 
 ---
 
 #### User Navigation Tests
 
-
-
----
-
-#### Account Authorisation Tests
-
-
-
+| Test                                      | Result |
+| ----------------------------------------- | ------ |
+| User can easily navigate through the site | Pass   |
+| User can access About page                | Pass   |
+| User access their account page            | Pass   |
+| User can access the card content in blog  | Pass   |
+| SuperUser can access admin page           | Pass   |
 
 ---
 
 #### CRUD Tests
 
+| Test                      | Result |
+| ------------------------- | ------ |
+| User can create a task    | Pass   |
+| User can edit a task      | Pass   |
+| User can delete a task    | Pass   |
+| User can read a task      | Pass   |
 
+#### Jigsaw and HTML Validation
 
-
-#### Bugs and Issues
-
-- 
+- I used the W3 HTML Validator to check the HTML on each of my site pages by Direct Input. I have resolved the necessary errors.
+- I used the W3 CSS Validator to check my CSS script by Direct Input. I found no errors! 
 
 #### Deployment
 
@@ -227,7 +238,7 @@ My user stories encompassed all the essential features that I believed would del
 
 ---
 
-#### references
+#### Credits and References
 - [Django Documentation](https://www.djangoproject.com/)
 - [Mdn](https://developer.mozilla.org/)
 - Code Institute - I think before I blog
