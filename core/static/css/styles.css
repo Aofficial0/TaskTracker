@@ -44,7 +44,7 @@ p  {
     0% { opacity: 1; } /* Start fully visible */
     50% { opacity: 1; }
     90% { opacity: 0.2; } /* Gradually fade out */
-    100% { display: none; opacity: 0; } /* Hide it after fade */
+    100% { display: none; opacity: 0; } 
 }
 
 
