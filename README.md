@@ -224,10 +224,13 @@ tested for responsiveness in Google Chrome, using devtools
 | User can delete a task    | Pass   |
 | User can read a task      | Pass   |
 
-#### Jigsaw and HTML Validation
+#### Jigsaw and HTML Validation and CI Python Linter
 
 - I used the W3 HTML Validator to check the HTML on each of my site pages by Direct Input. I have resolved the necessary errors.
 - I used the W3 CSS Validator to check my CSS script by Direct Input. I found no errors! 
+
+<img src="core/static/images/python check.png" alt="python check" width="520">
+
 
 #### Deployment
 
