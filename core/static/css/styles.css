@@ -48,6 +48,26 @@ p  {
 }
 
 
+.logoutbtn, .deletebtn {
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 25px;
+    text-decoration: none;  
+    background-color: transparent; 
+    transition: all 0.3s ease;
+
+}
+
+.deletebtn:hover {
+    color: white; 
+    background-color: #292929;
+}
+
+.logoutbtn:hover {
+    color: white; 
+    background-color: #292929;
+}
+
 /* login page  */
 
 .header-bar h1 {
