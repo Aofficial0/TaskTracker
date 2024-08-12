@@ -18,9 +18,12 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 # Create your views here.
+
+
 def home(request):
     return render(request, 'core/home.html')
-    
+
+
 class CustomLoginView(LoginView):
     template_name = 'core/login.html'
     fields = '__all__'
@@ -29,6 +32,7 @@ class CustomLoginView(LoginView):
     def get_success_url(self):
         messages.success(self.request, 'You have successfully logged in.')
         return reverse_lazy('home')
+
 
 class LogoutConfirmView(LoginRequiredMixin, View):
     template_name = 'core/logout-confirm.html'
@@ -48,14 +52,15 @@ def update_task_complete_status(request, task_id):
     task.save()
     messages.success(request, f'Task "{task.title}" status updated successfully.')
     return redirect(request.META.get('HTTP_REFERER', '/'))
-    
+
+
 class RegisterPage(FormView):
     template_name = 'core/register.html'
-    form_class = UserCreationForm 
+    form_class = UserCreationForm
     redirect_authenticated_user = True
     success_url = reverse_lazy('tasks')
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         user = form.save()
         if user is not None:
             login(self.request, user)
@@ -65,10 +70,11 @@ class RegisterPage(FormView):
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
             return redirect('tasks')
-        return super(RegisterPage, self).get( *args, **kwargs)
+        return super(RegisterPage, self).get(*args, **kwargs)
+
 
 class TaskTrack(LoginRequiredMixin, ListView):
-    model = Task 
+    model = Task
     context_object_name = 'tasks'
 
     def get_context_data(self, **kwargs):
@@ -84,10 +90,12 @@ class TaskTrack(LoginRequiredMixin, ListView):
         context['search_input'] = search_input
         return context
 
+
 class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
-    context_object_name= 'task'
-    template_name= 'core/task.html'
+    context_object_name = 'task'
+    template_name = 'core/task.html'
+
 
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
@@ -99,14 +107,16 @@ class TaskCreate(LoginRequiredMixin, CreateView):
         messages.success(self.request, 'Created task successful.')
         return super(TaskCreate, self).form_valid(form)
 
+
 class TaskUpdate(LoginRequiredMixin, UpdateView):
-    model = Task 
+    model = Task
     fields = ['title', 'description', 'complete']
     success_url = reverse_lazy('tasks')
 
     def form_valid(self, form):
         messages.success(self.request, 'Task updated successfully.')
         return super().form_valid(form)
+
 
 class TaskDeleteConfirmView(LoginRequiredMixin, View):
     template_name = 'core/task_confirm_delete.html'
