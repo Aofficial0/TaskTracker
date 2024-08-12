@@ -4,14 +4,15 @@
 
 <h3>Task Form</h3>
 
-<a href="{% url 'tasks' %}">Go Back</a>
+<a class="backbtn" href="{% url 'tasks' %}">Go Back</a>
 
-<form action="" method="post">
+<form class="task_from" action="" method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="submit">
+    
+    {{ form.title }}
+    {{ form.description }}  
+    
+    <input class="submitbtn" type="submit" value="Submit">
 </form>
-
-
 
 {% endblock content %}

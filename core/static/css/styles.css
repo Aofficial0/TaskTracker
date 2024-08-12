@@ -48,7 +48,7 @@ p  {
 }
 
 
-.logoutbtn, .deletebtn {
+.logoutbtn, .deletebtn, .submitbtn {
     border: 1px solid gray;
     padding: 10px;
     border-radius: 25px;
@@ -64,6 +64,11 @@ p  {
 }
 
 .logoutbtn:hover {
+    color: white; 
+    background-color: #292929;
+}
+
+.submitbtn:hover {
     color: white; 
     background-color: #292929;
 }
@@ -349,6 +354,44 @@ img {
     .banner .row img {
         margin-top: 20px; 
     }
+}
+
+
+
+
+/* task form page  */
+
+
+/* Style the 'Go Back' link */
+.backbtn {
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 16px;
+}
+
+.backbtn:hover {
+    text-decoration: underline;
+}
+
+/* Center the form elements */
+.task_from {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style the input fields */
+.task_from input[type="text"],
+textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 /* footer  */

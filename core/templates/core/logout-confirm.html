@@ -1,7 +1,7 @@
 {% extends 'core/core.html' %}
 {% block content %}
 
-<a href="{% url 'tasks' %}">Go Back</a>
+<a class="backbtn" href="{% url 'tasks' %}">Go Back</a>
 
 <form method="post">
     {% csrf_token %}
