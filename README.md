@@ -235,6 +235,14 @@ tested for responsiveness in Google Chrome, using devtools
 
 <img src="core/static/images/python check.png" alt="python check" width="520">
 
+#### Performance
+- PC Performance
+
+<img src="core/static/images/pc  Performance.png" alt="PC Performance" width="520">
+
+- Mobile Performance
+
+<img src="core/static/images/mobile Performance.png" alt="python check" width="520">
 
 #### Deployment
 
