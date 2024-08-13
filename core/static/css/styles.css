@@ -1,18 +1,22 @@
+/* Body Styling */
 body {
     background: #2B236F;
-    background: linear-gradient(225deg, #2B236F, #B86931);
-    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(225deg, #2B236F, #B86931); /* Gradient background */
+    font-family: "Montserrat", sans-serif; /* Main font */
     font-weight: 400;
     font-style: normal;
     padding-top: 50px;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
-}
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+    height: 100vh; /* Full viewport height */
 }
 
+/* Header and Subheading Styling */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif; /* Header font */
+}
+
+/* Link and Paragraph Styling */
 a,
 p {
     color: #252525
@@ -27,7 +31,7 @@ p  {
     margin-bottom: 20px;
 }
 
-
+/* Alert Message Styling */
 .alert {
     padding: 20px;
     background-color: #4CAF50; 
@@ -36,7 +40,7 @@ p  {
     opacity: 1; 
     transition: opacity 0.6s ease-in; 
     position: relative;
-    animation: fadeOut 6s forwards; 
+    animation: fadeOut 6s forwards;  /* Fades out after 6 seconds */
 }
 
 /* Keyframes to fade out the alert */
@@ -47,7 +51,7 @@ p  {
     100% { display: none; opacity: 0; } 
 }
 
-
+/* Button Styling (logout, delete, submit) */
 .logoutbtn, .deletebtn, .submitbtn {
     border: 1px solid gray;
     padding: 10px;
@@ -58,23 +62,13 @@ p  {
 
 }
 
-.deletebtn:hover {
-    color: white; 
-    background-color: #292929;
-}
-
-.logoutbtn:hover {
-    color: white; 
-    background-color: #292929;
-}
-
-.submitbtn:hover {
+/* Hover effects for buttons */
+.deletebtn:hover, .logoutbtn:hover, .submitbtn:hover {
     color: white; 
     background-color: #292929;
 }
 
 /* login page  */
-
 .header-bar h1 {
     font-size: 48px;
     margin-bottom: 50px;
@@ -84,6 +78,7 @@ p  {
     margin-bottom: 20px;
 }
 
+/* Input field styling within login card */
 .card-body input {
     border: 1px solid gray;
     padding: 10px;
@@ -93,13 +88,13 @@ p  {
     transition: all 0.3s ease;
 }
 
+/* Hover effect for input fields */
 .card-body input:hover {
     color: white; 
     background-color: #292929;
 }
 
 /* register page  */
-
 form label {
     display: block;
     margin-bottom: 5px;
@@ -115,7 +110,6 @@ form label {
 }
 
  /* home page  */
-
 img {
     max-width: 60%;
     height: auto;
@@ -159,8 +153,7 @@ img {
     text-align: center;
 }
 
-/* task list page  */
-
+/* task list page */
 .logout-form {
     display: inline-block;
     margin-right: 20px;
@@ -172,6 +165,7 @@ img {
     margin-bottom: 20px; 
 }
 
+/* Logout Button Styling */
 .logout-button {
     background-color: #ff4b5c;
     border: none;
@@ -187,6 +181,7 @@ img {
     background-color: #e04352;
 }
 
+/* Task Count Styling */
 .task-count {
     font-size: 1.5em;
     margin-bottom: 20px;
@@ -197,6 +192,8 @@ img {
     gap: 20px;                  
     margin-bottom: 20px;        
 }
+
+/* Styling for 'Home' and 'Add Task' links */
 .home-link,
 .add-task-link {
     display: inline-block;
@@ -220,6 +217,7 @@ img {
     margin: 20px 0;
 }
 
+/* Search Form Styling */
 .search-input {
     padding: 8px;
     width: 200px;
@@ -323,6 +321,7 @@ img {
     cursor: pointer;
 }
 
+/* Container Styling */
 .container {
     max-width: 650px;
     height: 650px; 
@@ -341,7 +340,7 @@ img {
     padding: 20px; 
 }
 
-
+/* Responsive Design for Small Screens */
 @media (max-width: 767px) {
     body {
         background-size: cover;
@@ -356,12 +355,7 @@ img {
     }
 }
 
-
-
-
 /* task form page  */
-
-
 /* Style the 'Go Back' link */
 .backbtn {
     display: block;

@@ -1,68 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>TaskTracker</title>
+
     {% load static %}
 
+    <!-- Preconnect to Google Fonts for performance optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Link to Google Fonts for 'Montserrat' and 'Poppins' fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@200&display=swap" rel="stylesheet">
 
-
+    <!-- Link to Bootstrap CSS for responsive design and components -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
+    <!-- Link to the main custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+    <!-- Link to Font Awesome for icon fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     
+    <!-- Main container for content -->
     <div class="container">
+        <!-- Django block for inserting page-specific content -->
         {% block content %}
 
-        {% endblock content%}
+        {% endblock content %}
     </div>
 
-      <div class="footer">
+    <!-- Footer section with copyright information -->
+    <div class="footer">
         <p>© 2024 TASK TRACKER</p>
-      </div>
+    </div>
 
-
-      {% block extra_js %}
+    {% block extra_js %}
 <script>
+    // JavaScript to handle task completion checkbox interactions
     document.querySelectorAll('.complete-checkbox').forEach(checkbox => {
-    checkbox.addEventListener('change', function() {
-        const taskId = this.getAttribute('data-task-id');
-        const isChecked = this.checked;
+        checkbox.addEventListener('change', function() {
+            const taskId = this.getAttribute('data-task-id'); // Get task ID from the data attribute
+            const isChecked = this.checked; // Determine if the checkbox is checked
 
-        fetch(`/tasks/complete/${taskId}/`, {
-            method: 'POST',
-            headers: {
-                'X-CSRFToken': '{{ csrf_token }}',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ complete: isChecked }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                const taskRow = this.closest('.task-row');
-                if (isChecked) {
-                    taskRow.classList.add('completed');
+            // Send an AJAX POST request to update task completion status
+            fetch(`/tasks/complete/${taskId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}', // Include CSRF token for security
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ complete: isChecked }), // Send the completion status in the request body
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const taskRow = this.closest('.task-row'); // Get the closest task row element
+                    if (isChecked) {
+                        taskRow.classList.add('completed'); // Add 'completed' class if checked
+                    } else {
+                        taskRow.classList.remove('completed'); // Remove 'completed' class if unchecked
+                    }
                 } else {
-                    taskRow.classList.remove('completed');
+                    alert('There was an error updating the task status.'); // Show an error if the update fails
                 }
-            } else {
-                alert('There was an error updating the task status.');
-            }
+            });
         });
     });
-});
-
 </script>
 {% endblock extra_js %}
+
 </body>
 </html>

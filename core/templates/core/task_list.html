@@ -1,68 +1,106 @@
 {% extends 'core/core.html' %}
 {% block content %}
 
+<!-- Check if the user is authenticated (logged in) -->
 {%if request.user.is_authenticated %}
 {% if messages %}
+    <!-- Check if there are any messages to display (e.g., success or error messages) -->
+
         <div class="messages">
             {% for message in messages %}
+            <!-- Loop through each message and display it -->
                 <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+                <!-- Display each message with its corresponding tags (for styling) -->
             {% endfor %}
         </div>
     {% endif %}
 
-<div class="logout-container"> 
-    <form id="logout-form" method="get" action="{% url 'logout-confirm' %}" class="logout-form">
-        {% csrf_token %}
-        <button type="submit" class="logout-button">
-        <i class="fa-solid fa-right-from-bracket"></i>Logout
-        </button>
-    </form>
-</div>
+    <div class="logout-container"> 
+        <!-- Container for the logout button -->
+
+        <form id="logout-form" method="get" action="{% url 'logout-confirm' %}" class="logout-form">
+            {% csrf_token %}
+            <!-- CSRF token for security (protects against CSRF attacks) -->
+
+            <button type="submit" class="logout-button">
+                <i class="fa-solid fa-right-from-bracket"></i>Logout
+            </button>
+        </form>
+    </div>
+
 {% else %}
-<a href="{% url 'login' %}" class="login-link">Login</a>
+<!-- If the user is not authenticated (not logged in) -->
+
+    <a href="{% url 'login' %}" class="login-link">Login</a>
+    <!-- Display a login link that redirects to the login page -->
 {% endif %}
     
 <div class="links-container">
+    <!-- Container for additional navigation links -->
+
     <a href="{% url 'home' %}" class="home-link"><i class="fa-solid fa-house"></i>Home</a>
+
     <a href="{% url 'task-create' %}" class="add-task-link"><i class="fa-solid fa-plus"></i> Add Task</a>
+
 </div>
 
-
 <form method="get" class="search-form">
-     <input type="text" name="search-bar" value="{{search_input}}" class="search-input">
+    <!-- Form for searching tasks -->
+    <input type="text" name="search-bar" value="{{search_input}}" class="search-input">
+    <!-- Input field for the search query, pre-filled with the current search input -->
+
     <input type="submit" value="Search" class="search-button">
+    <!-- Submit button for the search form -->
 </form>
 
 <h3 class="task-count"><b>{{request.user|title}}</b> you have <b>{{count}}</b> incomplete task{{count|pluralize}}</h3>
-    
+<!-- Display the count of incomplete tasks, with proper pluralization -->
+
 <div class="task-table-container">
+    <!-- Container for the task table, allowing for horizontal scrolling if needed -->
+
     <table class="task-table">
+        <!-- Table displaying the list of tasks -->
+
         <tr>
             <th>Tasks</th>
             <th>Edit</th>
             <th>Delete</th>
             <th>Complete</th>
         </tr>
+
         {% for task in tasks %}
+        <!-- Loop through each task and display it in the table -->
+
         <tr class="task-row {% if task.complete %}completed{% endif %}">
+            <!-- Table row for each task, with 'completed' class if the task is marked as complete -->
+
             <td>{{ task.title }}</td>
+
             <td><a href="{% url 'task-update' task.id %}" class="edit-link">Edit</a></td>
+
             <td><a href="{% url 'task-delete' task.id %}" class="delete-link">Delete</a></td>
+
             <td>
                 <form method="post" action="{% url 'update_task_complete' task.id %}">
                     {% csrf_token %}
+                    <!-- CSRF token for security -->
+
                     <input type="checkbox" name="complete" {% if task.complete %}checked{% endif %} onchange="this.form.submit();">
+                    <!-- Checkbox to mark the task as complete, auto-submits the form on change -->
                 </form>
             </td>
         </tr>
+
         {% empty %}
+        <!-- If there are no tasks, display a message -->
+
         <tr>
             <td colspan="4">No tasks available</td>
         </tr>
+
         {% endfor %}
     </table>
 </div>
 
 {% endblock content %}
-
-

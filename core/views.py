@@ -21,6 +21,7 @@ import json
 
 
 def home(request):
+    # Renders the home page template
     return render(request, 'core/home.html')
 
 
@@ -30,6 +31,7 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
+        # Displays a success message and redirects to the home page after login
         messages.success(self.request, 'You have successfully logged in.')
         return reverse_lazy('home')
 
@@ -38,15 +40,18 @@ class LogoutConfirmView(LoginRequiredMixin, View):
     template_name = 'core/logout-confirm.html'
 
     def get(self, request, *args, **kwargs):
+        # Renders the logout confirmation page
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
+        # Logs out the user, displays a success message, and redirects to the login page
         logout(request)
         messages.success(request, 'You have successfully logged out.')
         return redirect(reverse_lazy('login'))
 
 
 def update_task_complete_status(request, task_id):
+    # Toggles the completion status of a task and displays a success message
     task = get_object_or_404(Task, id=task_id)
     task.complete = not task.complete  # Toggle the complete status
     task.save()
@@ -61,6 +66,7 @@ class RegisterPage(FormView):
     success_url = reverse_lazy('tasks')
 
     def form_valid(self, form):
+        # Registers a new user, logs them in, and displays a success message
         user = form.save()
         if user is not None:
             login(self.request, user)
@@ -68,6 +74,7 @@ class RegisterPage(FormView):
         return super(RegisterPage, self).form_valid(form)
 
     def get(self, *args, **kwargs):
+        # Redirects authenticated users to the tasks page
         if self.request.user.is_authenticated:
             return redirect('tasks')
         return super(RegisterPage, self).get(*args, **kwargs)
@@ -78,6 +85,7 @@ class TaskTrack(LoginRequiredMixin, ListView):
     context_object_name = 'tasks'
 
     def get_context_data(self, **kwargs):
+        # Provides task data for the current user, including search functionality
         context = super().get_context_data(**kwargs)
         context['tasks'] = context['tasks'].filter(user=self.request.user)
         context['count'] = context['tasks'].filter(complete=False).count()
@@ -95,7 +103,7 @@ class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
     template_name = 'core/task.html'
-
+    # Displays detailed information about a specific task
 
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
@@ -103,6 +111,7 @@ class TaskCreate(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('tasks')
 
     def form_valid(self, form):
+        # Creates a new task for the current user and displays a success message
         form.instance.user = self.request.user
         messages.success(self.request, 'Created task successful.')
         return super(TaskCreate, self).form_valid(form)
@@ -114,6 +123,7 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('tasks')
 
     def form_valid(self, form):
+         # Updates an existing task and displays a success message
         messages.success(self.request, 'Task updated successfully.')
         return super().form_valid(form)
 
@@ -123,6 +133,7 @@ class TaskDeleteConfirmView(LoginRequiredMixin, View):
     success_url = reverse_lazy('tasks')
 
     def get(self, request, *args, **kwargs):
+        # Renders a confirmation page for deleting a task
         task = Task.objects.get(id=kwargs['pk'])
         context = {
             'task': task
@@ -130,6 +141,7 @@ class TaskDeleteConfirmView(LoginRequiredMixin, View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
+        # Deletes the task and displays a success message
         task = Task.objects.get(id=kwargs['pk'])
         task.delete()
         messages.success(request, 'Task deleted successfully.')

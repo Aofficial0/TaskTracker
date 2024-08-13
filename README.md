@@ -229,6 +229,10 @@ tested for responsiveness in Google Chrome, using devtools
 - I used the W3 HTML Validator to check the HTML on each of my site pages by Direct Input. I have resolved the necessary errors.
 - I used the W3 CSS Validator to check my CSS script by Direct Input. I found no errors! 
 
+<img src="core/static/images/css test.png" alt="python check" width="520">
+
+- I used the CI Python Linter to check all my python scripts. I found a few small errors like the below - mostly lines were too long or there was a missing blank space line. I have left some of the error messages as they are related to a too long line at the result of a comment.
+
 <img src="core/static/images/python check.png" alt="python check" width="520">
 
 
