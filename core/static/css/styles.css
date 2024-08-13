@@ -169,7 +169,7 @@ img {
 .logout-button {
     background-color: #ff4b5c;
     border: none;
-    color: #fff;
+    color: #000;
     padding: 10px 95px;
     cursor: pointer;
     border-radius: 25px;
