@@ -71,34 +71,21 @@
 
         {% for task in tasks %}
         <!-- Loop through each task and display it in the table -->
-
         <tr class="task-row {% if task.complete %}completed{% endif %}">
-            <!-- Table row for each task, with 'completed' class if the task is marked as complete -->
-
             <td>{{ task.title }}</td>
-
             <td><a href="{% url 'task-update' task.id %}" class="edit-link">Edit</a></td>
-
             <td><a href="{% url 'task-delete' task.id %}" class="delete-link">Delete</a></td>
-
             <td>
                 <form method="post" action="{% url 'update_task_complete' task.id %}">
                     {% csrf_token %}
-                    <!-- CSRF token for security -->
-
                     <input type="checkbox" name="complete" {% if task.complete %}checked{% endif %} onchange="this.form.submit();">
-                    <!-- Checkbox to mark the task as complete, auto-submits the form on change -->
                 </form>
             </td>
         </tr>
-
         {% empty %}
-        <!-- If there are no tasks, display a message -->
-
         <tr>
             <td colspan="4">No tasks available</td>
         </tr>
-
         {% endfor %}
     </table>
 </div>

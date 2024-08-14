@@ -28,7 +28,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-aofficial0-tasktracker-yfxxw2ylvsp.ws.codeinstitute-ide.net','.herokuapp.com']
+ALLOWED_HOSTS = [
+    '8000-aofficial0-tasktracker-yfxxw2ylvsp.ws.codeinstitute-ide.net', '.herokuapp.com']
 
 # CSRF settings
 CSRF_TRUSTED_ORIGINS = [
@@ -84,7 +85,6 @@ WSGI_APPLICATION = 'tasktracker.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -96,7 +96,7 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-    
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

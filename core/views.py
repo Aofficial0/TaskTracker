@@ -55,7 +55,8 @@ def update_task_complete_status(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     task.complete = not task.complete  # Toggle the complete status
     task.save()
-    messages.success(request, f'Task "{task.title}" status updated successfully.')
+    messages.success(request, f'Task "{
+                     task.title}" status updated successfully.')
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
@@ -70,7 +71,8 @@ class RegisterPage(FormView):
         user = form.save()
         if user is not None:
             login(self.request, user)
-            messages.success(self.request, 'Registration successful. You are now logged in.')
+            messages.success(
+                self.request, 'Registration successful. You are now logged in.')
         return super(RegisterPage, self).form_valid(form)
 
     def get(self, *args, **kwargs):
@@ -105,6 +107,7 @@ class TaskDetail(LoginRequiredMixin, DetailView):
     template_name = 'core/task.html'
     # Displays detailed information about a specific task
 
+
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
     fields = ['title', 'description', 'complete']
@@ -123,7 +126,7 @@ class TaskUpdate(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('tasks')
 
     def form_valid(self, form):
-         # Updates an existing task and displays a success message
+        # Updates an existing task and displays a success message
         messages.success(self.request, 'Task updated successfully.')
         return super().form_valid(form)
 
