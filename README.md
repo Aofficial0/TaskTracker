@@ -26,9 +26,8 @@
 4.  [ Features Left to Implement ](#features-left-to-implement)
 5.  [ Technology used ](#technology-used)
 6.  [ Testing ](#testing)
-7.  [ Bugs ](#known-bugs)
-8.  [ Deployment](#deployment)
-9.  [ Credits and References ](#Credits-and-References)
+7.  [ Deployment](#deployment)
+8.  [ Credits and References ](#Credits-and-References)
 
 ---
 
@@ -233,9 +232,20 @@ tested for responsiveness in Google Chrome, using devtools
 #### Deployment
 
 - Repository created in Git
+
+  A Git repository was created to track the project's code and changes, ensuring efficient version control and a history of all modifications.
+
 - Deployed to Heroku
+
+  The application was deployed to Heroku, a cloud platform, allowing it to be accessible online with managed infrastructure.
+
 - Connected Secret Keys to config vars
+
+  Sensitive information, such as secret keys, was securely managed (config vars), ensuring they remain separate from the codebase.
+
 - Connected Code Institute PostGres Database
+
+  The application is connected to a PostgreSQL database provided by Code Institute to manage and store data securely.
 
 ---
 
@@ -248,3 +258,6 @@ tested for responsiveness in Google Chrome, using devtools
 - [css-gradien](https://www.css-gradient.com/)
 - [Fontawesome](https://fontawesome.com/)
 - [Google Fonts](https://fonts.google.com/)
+- [Chat-GPT](https://openai.com/chatgpt/)
+- [Stack overflow](https://stackoverflow.com/)
+- Code Institute Slack channel
