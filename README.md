@@ -252,6 +252,7 @@ tested for responsiveness in Google Chrome, using devtools
 #### Credits and References
 
 - [Django Documentation](https://www.djangoproject.com/)
+- [ccbv](https://ccbv.co.uk/)
 - [Mdn](https://developer.mozilla.org/)
 - Code Institute - I think before I blog
 - [Bootstrap Documentation ](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
