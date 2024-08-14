@@ -208,9 +208,6 @@ tested for responsiveness in Google Chrome, using devtools
 | Test                                      | Result |
 | ----------------------------------------- | ------ |
 | User can easily navigate through the site | Pass   |
-| User can access About page                | Pass   |
-| User access their account page            | Pass   |
-| User can access the card content in blog  | Pass   |
 | SuperUser can access admin page           | Pass   |
 
 ---
