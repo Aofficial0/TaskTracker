@@ -2,18 +2,15 @@
 
 ## A Task Organiser Website.
 
-<img src="core/static/images/image (1).png" alt="Responsive design" width="520">
+<img src="core/static/images/login.png" alt="Responsive design" width="520">
 
 <img src="core/static/images/image (2).png" alt="Responsive design" width="520">
 
 <img src="core/static/images/image (3).png" alt="Responsive design" width="520">
 
-
-
 ## Am I Responsive?
 
 <img src="core/static/images/tasktracker all dev.png" alt="Responsive design" width="520">
-
 
 ### [Link to the live site](https://tasktrackerr-8c1432966470.herokuapp.com)
 
@@ -21,22 +18,21 @@
 
 ---
 
-## Table of contents 
+## Table of contents
 
- 1. [ UX ](#ux)
- 2. [ Agile Development ](#agile-development)
- 3. [ Features implemented ](#features-implemented)  
- 4. [ Features Left to Implement ](#features-left-to-implement)  
- 5. [ Technology used ](#technology-used) 
- 6. [ Testing ](#testing)  
- 7. [ Bugs ](#known-bugs)  
- 8. [ Deployment](#deployment)
- 9. [ Credits and References ](#Credits-and-References)  
+1.  [ UX ](#ux)
+2.  [ Agile Development ](#agile-development)
+3.  [ Features implemented ](#features-implemented)
+4.  [ Features Left to Implement ](#features-left-to-implement)
+5.  [ Technology used ](#technology-used)
+6.  [ Testing ](#testing)
+7.  [ Bugs ](#known-bugs)
+8.  [ Deployment](#deployment)
+9.  [ Credits and References ](#Credits-and-References)
 
 ---
 
 ## UX design
-
 
 ### Overview
 
@@ -45,7 +41,6 @@
 > Initial design planning
 
 Early design stage of this project was created in Balsamic.
-
 
 <img src="core/static/images/login balsamic.png" alt="login design" width="520">
 <img src="core/static/images/tasklist balsamic.png" alt="task list Design" width="520">
@@ -68,8 +63,6 @@ I wanted the website to be easy to use by creating a simple design.
 - Notifications: Provide feedback to users through alerts when tasks are successfully updated, created, or deleted.
 - Responsiveness: Ensure the application is accessible and easy to use on all devices, including desktops, tablets, and mobile phones.
 
-
-
 ##### [ Back to Top ](#table-of-contents)
 
 ---
@@ -78,7 +71,7 @@ I wanted the website to be easy to use by creating a simple design.
 
 ## Overview
 
-I used GitHub projects to develop my site. 
+I used GitHub projects to develop my site.
 
 <img src="core/static/images/user stories.png" alt="Responsive design" width="520">
 
@@ -96,20 +89,18 @@ My user stories encompassed all the essential features that I believed would del
 6. https://github.com/Aofficial0/TaskTracker/issues/2
 7. https://github.com/Aofficial0/TaskTracker/issues/12
 
-
 ##### [ Back to Top ](#table-of-contents)
 
 ---
 
 # Features implemented
 
- - Task Management: Users can create, view, update, and delete tasks, providing a complete CRUD (Create, Read, Update, Delete) experience for managing their to-dos.
- - Task Completion Tracking: Allows users to mark tasks as complete with a visual indicator, enhancing task management and organization.
- - Search Functionality: Users can quickly find tasks by entering search queries, improving efficiency and usability.
- - User Authentication: Users can sign up, log in, and manage their accounts securely. Authentication is handled through Django’s built-in features, including CSRF protection for added security.
- - Incomplete Notification: The interface displays a notification with the number of incomplete tasks, helping users quickly assess task statuses. This feature ensures that important task metrics are easily accessible.
- - Responsive Design: The app is designed to be fully responsive, ensuring a seamless experience across various devices and screen sizes, with media queries and flexible layouts.
-
+- Task Management: Users can create, view, update, and delete tasks, providing a complete CRUD (Create, Read, Update, Delete) experience for managing their to-dos.
+- Task Completion Tracking: Allows users to mark tasks as complete with a visual indicator, enhancing task management and organization.
+- Search Functionality: Users can quickly find tasks by entering search queries, improving efficiency and usability.
+- User Authentication: Users can sign up, log in, and manage their accounts securely. Authentication is handled through Django’s built-in features, including CSRF protection for added security.
+- Incomplete Notification: The interface displays a notification with the number of incomplete tasks, helping users quickly assess task statuses. This feature ensures that important task metrics are easily accessible.
+- Responsive Design: The app is designed to be fully responsive, ensuring a seamless experience across various devices and screen sizes, with media queries and flexible layouts.
 
 <img src="core/static/images/search.png" alt="search option" width="520">
 
@@ -119,7 +110,6 @@ My user stories encompassed all the essential features that I believed would del
 
 <img src="core/static/images/taskedit .png" alt="edit Option" width="520">
 
-
 ### Task List page:
 
 - Task Overview: The Task List presents a comprehensive view of all tasks, including their status, and allows users to interact with tasks efficiently.
@@ -127,7 +117,6 @@ My user stories encompassed all the essential features that I believed would del
 ### Task Form page:
 
 - Task Creation and Editing: Users can create new tasks or edit existing ones via a user-friendly form, which includes fields for task details and description.
-
 
 ### Authentication and Profile Management:
 
@@ -138,7 +127,6 @@ My user stories encompassed all the essential features that I believed would del
 
 - Search Bar: Quickly locate tasks by typing into the search bar.
 - Alerts and Notifications: Users receive alerts for successful task updates or other relevant actions, improving feedback and interaction.
-
 
 ##### [ Back to Top ](#table-of-contents)
 
@@ -155,7 +143,7 @@ My user stories encompassed all the essential features that I believed would del
 
 ---
 
-# Technology used 
+# Technology used
 
 - HTML: Provides the structure and layout of web pages, ensuring semantic and well-organized content.
 - CSS: Utilized for custom styling, creating visually appealing and responsive designs.
@@ -194,12 +182,12 @@ tested for responsiveness in Google Chrome, using devtools
 
 #### Account Registration Tests
 
-| Test                                           | Result |
-| ---------------------------------------------- | ------ |
-| User can create profile                        | Pass   |
-| User can log into profile                      | Pass   |
-| User can log out of profile                    | Pass   |
-| Messages and alerts are displaying             | Pass   |
+| Test                               | Result |
+| ---------------------------------- | ------ |
+| User can create profile            | Pass   |
+| User can log into profile          | Pass   |
+| User can log out of profile        | Pass   |
+| Messages and alerts are displaying | Pass   |
 
 ---
 
@@ -214,17 +202,17 @@ tested for responsiveness in Google Chrome, using devtools
 
 #### CRUD Tests
 
-| Test                      | Result |
-| ------------------------- | ------ |
-| User can create a task    | Pass   |
-| User can edit a task      | Pass   |
-| User can delete a task    | Pass   |
-| User can read a task      | Pass   |
+| Test                   | Result |
+| ---------------------- | ------ |
+| User can create a task | Pass   |
+| User can edit a task   | Pass   |
+| User can delete a task | Pass   |
+| User can read a task   | Pass   |
 
 #### Jigsaw and HTML Validation and CI Python Linter
 
 - I used the W3 HTML Validator to check the HTML on each of my site pages by Direct Input. I have resolved the necessary errors.
-- I used the W3 CSS Validator to check my CSS script by Direct Input. I found no errors! 
+- I used the W3 CSS Validator to check my CSS script by Direct Input. I found no errors!
 
 <img src="core/static/images/css test.png" alt="python check" width="520">
 
@@ -233,6 +221,7 @@ tested for responsiveness in Google Chrome, using devtools
 <img src="core/static/images/python check.png" alt="python check" width="520">
 
 #### Performance
+
 - PC Performance
 
 <img src="core/static/images/pc  Performance.png" alt="PC Performance" width="520">
@@ -251,6 +240,7 @@ tested for responsiveness in Google Chrome, using devtools
 ---
 
 #### Credits and References
+
 - [Django Documentation](https://www.djangoproject.com/)
 - [Mdn](https://developer.mozilla.org/)
 - Code Institute - I think before I blog
